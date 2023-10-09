@@ -76,3 +76,31 @@ continue --> Se utiliza para salta a la siguiente iteracion
         console.log(i);
     }
 */
+ /*
+    FECHAS
+    Declaracion de fechas
+        //new Date();
+        //new Date(milisegundos);
+        let fecha = new Date(9252894573400);
+
+        //new Date(fechasString);
+        let fecha  = new Date("12/14/2022");// mes, dia , año
+        let fecha  = new Date("Aug 16 2001");//formato corto
+        let fecha  = new Date("Thu Aug 16 2001 00:00:00 GMT+0200 (hora de verano de Europa central)");// formato largo
+        let fecha = new Date("2001-07-05");// año, mes, dia
+        let fecha = new Date(2023, 9, 9, 1, 15, 0);
+
+        //new Date(año, mes, dia, horas, segundo, milisegundos);
+        let fecha = new Date(2023, 9, 9, 1, 15, 0); 
+        let parrafo = document.getElementById("fecha")
+
+        // parrafo.innerHTML = fecha.getDate();
+        // parrafo.innerHTML = fecha.getDay(); // Obtiene el dia
+        parrafo.innerHTML = fecha.getFullYear(); // obtiene el año
+        parrafo.innerHTML = fecha.getHours(); // obtiene las horas
+        parrafo.innerHTML = fecha.getMilliseconds(); // obtiene los milisegundos
+        parrafo.innerHTML = fecha.getMinutes(); // Obtiene los minutos
+        parrafo.innerHTML = fecha.getMonth(); //Obtiene el mes
+        parrafo.innerHTML = fecha.getSeconds(); // Obtiene los segundos
+        parrafo.innerHTML = fecha.getTime(); // nos da la hora en milisegundos empieza el 1 de enero de 1970
+ */
