@@ -96,7 +96,7 @@
         }
     }
     console.log(vocales);
-*/
+
     //ARRAYS MULTIDIMENSIONALES
     let tabla = new Array(10);
     for(let i = 0; i < tabla.length; i++){
@@ -111,3 +111,73 @@
     }
 
     console.log(tabla);
+*/
+
+    ////////////////////////////////////////////////////////METODOS DE ARRAYS///////////////////////////////////////
+    //POP elimina el ultimo elemento del array y lo devuelve
+    let paco = ["joan", "amparo", "Ángel", "esther", "amparo", "Zoraida", "Bárbara"];
+    let otros = ["valentin", "pepe"];
+    // console.log(paco);
+    // let elementoEliminado = paco.pop();
+    // console.log(elementoEliminado);
+    //shift() --> Elimina el primer elemento del array y lo devuelve
+    // let elementoEliminado = paco.shift();
+    // console.log(elementoEliminado);
+    //unshift() --> Agrega uno o mas elementos al principio de un array
+    // paco.unshift("valentin", "pepe");
+    // console.log(paco);
+    //concat() --> Combina dos o mas arrays y devuelve un nuevo array
+    // let combinacion = paco.concat(otros);
+    // console.log(combinacion);
+    //slice() --> Devuelve una copia (superficial)
+    //de una porcion del array
+    // let copiaPaco = paco.slice(1, 3);
+    // console.log(copiaPaco);
+    //splice() --> Cambia el contenido de un array eliminando, reemplzando o agregando elementos
+    // paco.splice(0, 1, ...otros);//posicion, cantidad que quiero eliminar desde la posicion elegida, cualquier otra cosa que quieras agregar al array 
+    console.log(paco);
+
+    //indexOf() --> Devuelve el primer indice en el que se encuentra un elemento dado. Devuelve -1 si no lo encuantra
+    // let indice = paco.indexOf("Esther");
+    // let cadena = "Hola cara de bola";
+    // indice = cadena.indexOf("a");
+    // indice = paco.lastIndexOf("joan");
+    // console.log(indice);
+
+    //join() -->Une todos los elementos de un array en una cadena (utilizando un separador)
+    // let cadena = paco.join(" x ");
+    // console.log(cadena);
+
+    //sort() --> Ordena los elementos de un array alfabeticamente si son cadena y numericamente si son numeros. Devuelve un array ordenado
+    // let numeros = [1,2,3,4,-1, 10, 0];
+    // let mixto = ["a", "hola", 1,2,3,true]
+    // console.log(paco.sort());
+    // console.log(numeros.sort());
+    // console.log(mixto.sort());
+    //ordenar correctamente con sort => uso de parametro el parametro es una funcion
+    //-Esta funcion debe recibir dos valores a comparar
+    //- Como resultado debe:
+    //  - Devolver un valor positivo (1) si el primer valor es superior al segundo
+    //  - Devolver un valor negativo (-1) si el primer valor es inferior al segundo
+    //  - Devolver un valor (0) si los dos son valores son iguales o equivalente para la ordenacion
+
+    //sort() en numeros
+    let numeros = [10, 5, 8, 1];
+    //Funcion anonima
+    // console.log(numeros.sort(function(a, b){
+    //     return a - b;
+    // }));
+
+    //Funcion flecha
+    //console.log(numeros.sort((a, b) =>  a - b));
+
+    // sort() en cadenas
+     
+    // console.log(paco.sort((a, b) => {
+    //     return (a.toLowerCase() > b.toLowerCase()) ? 1 : (a.toLowerCase() < b.toLowerCase()) ? -1 :  0;
+    // }));
+
+    //.localeCompare Ordena todo bien :)
+    console.log(paco.sort((a, b) => {
+        return a.localeCompare(b);
+    }));
