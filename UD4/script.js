@@ -111,7 +111,6 @@
     }
 
     console.log(tabla);
-*/
 
     ////////////////////////////////////////////////////////METODOS DE ARRAYS///////////////////////////////////////
     //POP elimina el ultimo elemento del array y lo devuelve
@@ -136,18 +135,18 @@
     //splice() --> Cambia el contenido de un array eliminando, reemplzando o agregando elementos
     // paco.splice(0, 1, ...otros);//posicion, cantidad que quiero eliminar desde la posicion elegida, cualquier otra cosa que quieras agregar al array 
     console.log(paco);
-
+    
     //indexOf() --> Devuelve el primer indice en el que se encuentra un elemento dado. Devuelve -1 si no lo encuantra
     // let indice = paco.indexOf("Esther");
     // let cadena = "Hola cara de bola";
     // indice = cadena.indexOf("a");
     // indice = paco.lastIndexOf("joan");
     // console.log(indice);
-
+    
     //join() -->Une todos los elementos de un array en una cadena (utilizando un separador)
     // let cadena = paco.join(" x ");
     // console.log(cadena);
-
+    
     //sort() --> Ordena los elementos de un array alfabeticamente si son cadena y numericamente si son numeros. Devuelve un array ordenado
     // let numeros = [1,2,3,4,-1, 10, 0];
     // let mixto = ["a", "hola", 1,2,3,true]
@@ -160,24 +159,140 @@
     //  - Devolver un valor positivo (1) si el primer valor es superior al segundo
     //  - Devolver un valor negativo (-1) si el primer valor es inferior al segundo
     //  - Devolver un valor (0) si los dos son valores son iguales o equivalente para la ordenacion
-
+    
     //sort() en numeros
     let numeros = [10, 5, 8, 1];
     //Funcion anonima
     // console.log(numeros.sort(function(a, b){
     //     return a - b;
     // }));
-
+    
     //Funcion flecha
     //console.log(numeros.sort((a, b) =>  a - b));
-
+    
     // sort() en cadenas
      
     // console.log(paco.sort((a, b) => {
     //     return (a.toLowerCase() > b.toLowerCase()) ? 1 : (a.toLowerCase() < b.toLowerCase()) ? -1 :  0;
     // }));
-
+    
     //.localeCompare Ordena todo bien :)
     console.log(paco.sort((a, b) => {
         return a.localeCompare(b);
     }));
+*/
+    ////////////////////////////////////FUNCIONES////////////////////////////
+    /*
+    function diHola(){
+        console.log("Hola");
+    }
+    console.log(multiplica(3,10));
+    
+    function multiplica(c, d){
+        let a = 10;
+        let b= 20;
+        return (a * b * c * d);
+    }
+
+    */
+    ////////////////////////////////////OBJETOS////////////////////////////
+    /*
+        Para la clave podemos omitar las comillas
+
+        let unCliente = {
+            nombre: "Alvaro",
+            apellido: "Quispe",
+            "direccion fiscal": "Calle las Rosas N1 ",
+            "+-+-+-+": "boquesa",
+            pago: {
+                tipo: "Visa",
+                tarjeta: "3219587478",
+                "fecha caducidad": "nunca"
+            },
+            vencimiento: 30
+        }
+        unCliente["vencimiento"] = 60;
+        unCliente["pago"]["tipo"];
+        console.log(unCliente);
+        console.log(unCliente["+-+-+-+"]);
+        console.log(unCliente["pago"]["tipo"]);
+        console.log(unCliente.apellido);
+        console.log(unCliente.pago.tarjeta);
+        console.log(unCliente.pago["fecha caducidad"]);
+    */
+    //Metodos como elementos
+    let estudiante = {
+        id: 1,
+        nombre: "Alvaro",
+        diHola: function(){
+            return "hola"
+        },
+        notas: [10, 0, 5, 5]
+    }
+
+    function mediaAlumno(objeto){
+        let media = 0;
+        for(let i = 0; i < objeto.notas.length; i++){
+            media += objeto.notas[i];
+        }
+        media = media/objeto.notas.length;
+        return media;
+    }
+
+    // Agregar una propiedad al objeto
+    estudiante.apellido = "Quispe"; 
+    estudiante.diAdios = function(){
+        return "Adios";
+    }
+    console.log(mediaAlumno(estudiante));
+    console.log(estudiante);
+
+    //THIS
+    let factura = {
+        descripcion: "Factura de prueba",
+        precio: 100.0,
+        iva: 21.0,
+        subtotal: function(){
+            return this.precio;       
+        },
+        total: function(){
+            return this.precio + (this.precio * this.iva) / 100;
+        }
+    }
+    console.log(factura);
+    console.log(factura.subtotal());
+    console.log(factura.total());
+
+    //CONSTRUCTORES
+    //No llega a ser una clase 
+    function Web(){
+        this.url = "http://localhost";
+        this.nombre = "Localhost";
+        this.muestraInformacion = function(){
+            return "url: " + this.url + "\n" + "Web: " + this.nombre;
+        }
+    }
+    //Instanciando el objeto: Se usa la palabra reservada new
+    //Si no modificamos nada toma los valores por defecto del padre
+    let unaWeb = new Web();
+    unaWeb.url = "https://www.amazon.com";
+    unaWeb.nombre = "Amazon";
+    console.log(unaWeb);
+    console.log(unaWeb.muestraInformacion());
+
+    let otraWeb = new Web();
+    otraWeb.url = "https://www.fcbarcelona.cat";
+    otraWeb.nombre = "Mas que un club"
+    console.log(otraWeb);
+    console.log(otraWeb.muestraInformacion());
+
+    //Si modifica la pseudoclase
+    Web.visitas = 2;
+    //Pero no modifica la instancia de esta pseudoclase
+    console.log(Web.visitas);
+    console.log(unaWeb.visitas);
+    console.log(otraWeb.visitas);
+
+    //Para poder agregar algo a la pseudoclase hay que utilizar prototype
+    Web.prototype.visitas = 2;
+    console.log(unaWeb.visitas);
