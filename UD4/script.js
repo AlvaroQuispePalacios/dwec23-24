@@ -219,80 +219,278 @@
         console.log(unCliente.apellido);
         console.log(unCliente.pago.tarjeta);
         console.log(unCliente.pago["fecha caducidad"]);
+
+
+
+
+
+        ///////////////////////////Metodos como elementos////////////////////
+        let estudiante = {
+            id: 1,
+            nombre: "Alvaro",
+            diHola: function(){
+                return "hola"
+            },
+            notas: [10, 0, 5, 5]
+        }
+    
+        function mediaAlumno(objeto){
+            let media = 0;
+            for(let i = 0; i < objeto.notas.length; i++){
+                media += objeto.notas[i];
+            }
+            media = media/objeto.notas.length;
+            return media;
+        }
+    
+        // Agregar una propiedad al objeto
+        estudiante.apellido = "Quispe"; 
+        estudiante.diAdios = function(){
+            return "Adios";
+        }
+        console.log(mediaAlumno(estudiante));
+        console.log(estudiante);
+    
+        //THIS
+        let factura = {
+            descripcion: "Factura de prueba",
+            precio: 100.0,
+            iva: 21.0,
+            subtotal: function(){
+                return this.precio;       
+            },
+            total: function(){
+                return this.precio + (this.precio * this.iva) / 100;
+            }
+        }
+        console.log(factura);
+        console.log(factura.subtotal());
+        console.log(factura.total());
+    
+        //CONSTRUCTORES
+        //No llega a ser una clase 
+        function Web(){
+            this.url = "http://localhost";
+            this.nombre = "Localhost";
+            this.muestraInformacion = function(){
+                return "url: " + this.url + "\n" + "Web: " + this.nombre;
+            }
+        }
+        //Instanciando el objeto: Se usa la palabra reservada new
+        //Si no modificamos nada toma los valores por defecto del padre
+        let unaWeb = new Web();
+        unaWeb.url = "https://www.amazon.com";
+        unaWeb.nombre = "Amazon";
+        console.log(unaWeb);
+        console.log(unaWeb.muestraInformacion());
+    
+        let otraWeb = new Web();
+        otraWeb.url = "https://www.fcbarcelona.cat";
+        otraWeb.nombre = "Mas que un club"
+        console.log(otraWeb);
+        console.log(otraWeb.muestraInformacion());
+    
+        //Si modifica la pseudoclase
+        Web.visitas = 2;
+        //Pero no modifica la instancia de esta pseudoclase
+        console.log(Web.visitas);
+        console.log(unaWeb.visitas);
+        console.log(otraWeb.visitas);
+    
+        //Para poder agregar algo a la pseudoclase hay que utilizar prototype
+        Web.prototype.visitas = 2;
+        console.log(unaWeb.visitas);
+
+
+
+
+        //Estos son objetos
+        const ciudades = [
+            {
+                municipio: "Zaragosza",
+                provincia: "Zaragoza"
+            },
+            {
+                municipio: "Avila",
+                provincia: "Avila"
+            },
+            {
+                municipio: "Madrid",
+                provincia: "Madrid"
+            },
+            {
+                municipio: "Barcelona",
+                provincia: "Barcelona"
+            },
+        ];
+        console.log(ciudades);
+        //sort() a ser un metodo se ejecuta antes asi que afecta tanto antes como despues
+        ciudades.sort((a, b) => {
+            return a.municipio.localeCompare(b.municipio);
+        });
+        console.log(ciudades);
     */
-    //Metodos como elementos
-    let estudiante = {
-        id: 1,
-        nombre: "Alvaro",
-        diHola: function(){
-            return "hola"
-        },
-        notas: [10, 0, 5, 5]
-    }
 
-    function mediaAlumno(objeto){
-        let media = 0;
-        for(let i = 0; i < objeto.notas.length; i++){
-            media += objeto.notas[i];
-        }
-        media = media/objeto.notas.length;
-        return media;
-    }
 
-    // Agregar una propiedad al objeto
-    estudiante.apellido = "Quispe"; 
-    estudiante.diAdios = function(){
-        return "Adios";
-    }
-    console.log(mediaAlumno(estudiante));
-    console.log(estudiante);
+    //////////////////////////////ES6///////////////////////////////////
+    /* 
+    const miArray = ["A", "B", "C"];
+    miArray.push("D");
+    console.log(miArray);
+    const A = "a";
+    miArray[1] = "F"; 
+    console.log(miArray);
+    ///////////////////////////Desestructuracion////////////////////////
+    const numeros = [1, 2, 3];
+    const [a, b, c] = numeros;
+    console.log(a);
+    console.log(b);
 
-    //THIS
-    let factura = {
-        descripcion: "Factura de prueba",
-        precio: 100.0,
-        iva: 21.0,
-        subtotal: function(){
-            return this.precio;       
-        },
-        total: function(){
-            return this.precio + (this.precio * this.iva) / 100;
-        }
-    }
-    console.log(factura);
-    console.log(factura.subtotal());
-    console.log(factura.total());
+    
+    
+    //Desestructurar Objetos
+   const persona = {
+       nombre: "Alvaro",
+       
+       edad: 22
+    };
+    //Para desustructurar un objeto tiene que tener el mismo nombre
+ 
+   const {nombre, edad} = persona;
+   console.log(nombre);
 
-    //CONSTRUCTORES
-    //No llega a ser una clase 
-    function Web(){
-        this.url = "http://localhost";
-        this.nombre = "Localhost";
-        this.muestraInformacion = function(){
-            return "url: " + this.url + "\n" + "Web: " + this.nombre;
-        }
-    }
-    //Instanciando el objeto: Se usa la palabra reservada new
-    //Si no modificamos nada toma los valores por defecto del padre
-    let unaWeb = new Web();
-    unaWeb.url = "https://www.amazon.com";
-    unaWeb.nombre = "Amazon";
-    console.log(unaWeb);
-    console.log(unaWeb.muestraInformacion());
 
-    let otraWeb = new Web();
-    otraWeb.url = "https://www.fcbarcelona.cat";
-    otraWeb.nombre = "Mas que un club"
-    console.log(otraWeb);
-    console.log(otraWeb.muestraInformacion());
 
-    //Si modifica la pseudoclase
-    Web.visitas = 2;
-    //Pero no modifica la instancia de esta pseudoclase
-    console.log(Web.visitas);
-    console.log(unaWeb.visitas);
-    console.log(otraWeb.visitas);
+   const nombre = "josep";
+   const edad = 33;
 
-    //Para poder agregar algo a la pseudoclase hay que utilizar prototype
-    Web.prototype.visitas = 2;
-    console.log(unaWeb.visitas);
+   const persona = {
+       nombre,
+       edad
+   }
+   console.log(persona);
+
+
+   ///////////////TEMPLATE STRINGS- PLANTILLAS CADENA/////////////////////
+   //Mediante el operador de interpolacion ${}, para que funcione se tiene que utilizar el acento "Catalan( `` )""
+   const nombre = "Bob";
+   const edad = "23";
+
+   const mensaje = `Hola, mi nombre es ${nombre} y tengo ${edad} años`;
+   console.log(mensaje);
+
+
+   //Operador spread(...) --> nos da los valores de un array uno a uno
+   const numeros = [1, 2, 3];
+   const nuevosNumeros = [...numeros, 4, 5];
+   console.log(nuevosNumeros);
+   
+
+   //Parametros por defectos
+   function saludar(nombre = "Invitado"){
+        return (`Hola ${nombre}`);
+   }
+   console.log(saludar());
+
+
+   
+   
+      //Parametros rest (rest parameter)
+      //Se pasa varios parametros en uno solo utilizando un array y el operador spread(...)
+      function sumar(...numeros){
+           let resultado = 0;
+   
+           for(let numero of numeros){
+               resultado += numero;
+           }
+   
+           return resultado;
+      }
+      console.log(sumar(5, 4, -1, 6, 6));
+
+
+
+      //Funciones flecha
+   //    function sumar (a,b){
+   //     return a +b ;
+   //    }
+      //Funcion flecha utilizando rest
+      const sumar = (...numeros) => {
+           let resultado = 0;
+           for(let numero of numeros){
+               resultado += numero;
+           };
+           return  resultado;
+      };
+   
+      console.log(sumar(3, 2, 7));
+    */
+
+   /////////////////////METODOS DE ARRAY///////////////////////
+   //forEach() ejecuta una funcion una vez por cada elemento
+   const numeros = [1, 2, 3, 4, 5];
+   const multiplica = (n) => {
+    return n * 2;
+   }; 
+
+//    numeros.forEach((numero) =>{
+//         console.log(numero);
+//    });
+
+//    numeros.forEach((numero) =>{
+//         console.log(multiplica(numero)); 
+//     });
+
+    //map()--> Crea un nuevo array con los resultados de aplicar una funcion a cada elemento del array
+
+    //const dobleNumero = numeros.map((numero) => {
+    //    return multiplica(numero);
+    //});
+
+
+    //console.log(dobleNumero);
+    
+    /* 
+    //filter()-->Crea un nuevo array con todos los elemento que cumplan una condicion determinada
+    const numeroPares = numeros.filter((numero) =>{
+        return numero % 2 === 0;
+    });
+ 
+    const numeroMayoresQueDos = numeros.filter((numero) =>{
+        return numero > 2;
+    });
+    console.log(numeroMayoresQueDos);
+
+ 
+    //reduce() --> Aplica una funcion a un acumulador y a cada elemento del array(de izquierda a derecha) para reducirlo a un UNICO valor
+    const suma = numeros.reduce((acumulador, numero) =>{
+        return acumulador + numero;
+    }, 0);
+    console.log(suma);
+ 
+    //find()-->Devuelve el primer elemento del array que cumpla una condicion
+ 
+    const numeroEncontrado = numeros.find((numero) =>{
+        return numero < 3;
+    });
+    console.log(numeroEncontrado);
+    
+
+    //findIndex()-->Devuelve el incide del primer elemento del array que cumple una funcion de prueba o -1 si no encuentra nada
+    const indiceEncontrado = numeros.findIndex((numero) =>{
+         return numero < 3;
+    });
+    console.log(indiceEncontrado);
+    */
+
+    //some() --> Comprueba si al menos un elemento del array cumple una condicion determinada
+    const tieneNumeroPar = numeros.some((numero) =>{
+        return numero % 2 === 0;
+    });
+    console.log(tieneNumeroPar);
+
+    //every()-->Comprueba si todos los elementos del array cumplen una condicion 
+    const cumplen = numeros.every((numero) =>{
+        return numero % 2 === 0;
+    });
+    console.log(cumplen);
