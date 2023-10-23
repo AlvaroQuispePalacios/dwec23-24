@@ -428,10 +428,10 @@
 
    /////////////////////METODOS DE ARRAY///////////////////////
    //forEach() ejecuta una funcion una vez por cada elemento
-   const numeros = [1, 2, 3, 4, 5];
-   const multiplica = (n) => {
-    return n * 2;
-   }; 
+//    const numeros = [1, 2, 3, 4, 5];
+//    const multiplica = (n) => {
+//     return n * 2;
+//    }; 
 
 //    numeros.forEach((numero) =>{
 //         console.log(numero);
@@ -481,16 +481,100 @@
          return numero < 3;
     });
     console.log(indiceEncontrado);
-    */
+
 
     //some() --> Comprueba si al menos un elemento del array cumple una condicion determinada
     const tieneNumeroPar = numeros.some((numero) =>{
         return numero % 2 === 0;
     });
     console.log(tieneNumeroPar);
-
+ 
     //every()-->Comprueba si todos los elementos del array cumplen una condicion 
     const cumplen = numeros.every((numero) =>{
         return numero % 2 === 0;
     });
     console.log(cumplen);
+
+
+    */
+
+    /*//////////////////////////////CLASES//////////////////////////////////
+    
+    */
+   class Persona{
+    constructor(nombre){
+        this.nombre = nombre;
+    }
+    saludar(){
+        console.log(`Hola soy ${this.nombre}`);
+    }
+   }
+
+   const alvaro = new Persona("Alvaro");
+   //console.log(alvaro);
+   //alvaro.saludar();
+
+   //HERENCIA
+   class Empleado extends Persona{
+    constructor(nombre, salario){
+        super(nombre);
+        this.salario = salario;
+    }
+    trabajar(){
+        console.log(`${this.nombre} esta trabajando.`);
+    }
+   }
+
+   const maria = new Empleado("Maria", 300000);
+    //console.log(maria);
+    //maria.saludar();
+    //maria.trabajar();
+    //SIMBOLOS
+    //Son una nueva clase de datos introducida por ES6. Son valores unicos e inmutables se pueden utilizar como identificadores de propiedades de objetos.
+
+    //const id = Symbol("id");
+    //const persona = {
+    //    nombre: "Alvaro",
+    //    [id]: 1
+    //};
+
+    //console.log(persona[id]);
+   //ITERADORES
+   //Son objetos que incrementan el protocolo de iteracion en JavaScript permiten recorrer y acceder a los elementos de una coleccion uno a uno
+   //Nos dice 
+   const numeros = [1, 2, 3];
+   const iterador = numeros[Symbol.iterator]();
+   console.log(iterador.next());
+   console.log(iterador.next());
+   console.log(iterador.next());
+   console.log(iterador.next());
+   //Nos dice que el valor de la posicion en el que se encuentra y si ha llegado al final
+
+   //SET
+   //Permite almacenar valores unicos de cualquier tipo, no permite duplicados y ofrece metodos para agregar, eliminar y verificar la existencia del elemento.
+   const setNumeros = new Set();
+   setNumeros.add(1);
+   setNumeros.add(2);
+   setNumeros.add(3);
+
+   console.log(setNumeros.has(2));
+   setNumeros.delete(2);
+   console.log(setNumeros.has(2));
+   console.log(setNumeros.size);
+   console.log(setNumeros);
+   const iterador2 = setNumeros[Symbol.iterator]();
+   console.log(iterador2.next());
+   console.log(iterador2.next());
+   console.log(iterador2.next());
+   //MAP
+   //Nos permite almacenar PARES clave-valor donde cada clave es único. Permite operaciones de busqueda, insercion y eliminacion.
+   const mapaNombres = new Map();
+   mapaNombres.set("nombre", "Alvaro")
+   mapaNombres.set("edad", 33);
+   mapaNombres.set("profesion", "Desarrollador");
+   console.log(mapaNombres.get("edad"));
+   console.log(mapaNombres.has("edad"));
+   mapaNombres.delete("edad");
+   console.log(mapaNombres.has("edad"));
+   console.log(mapaNombres.size);
+   console.log(mapaNombres);
