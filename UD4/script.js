@@ -119,9 +119,11 @@
     // console.log(paco);
     // let elementoEliminado = paco.pop();
     // console.log(elementoEliminado);
+
     //shift() --> Elimina el primer elemento del array y lo devuelve
     // let elementoEliminado = paco.shift();
     // console.log(elementoEliminado);
+
     //unshift() --> Agrega uno o mas elementos al principio de un array
     // paco.unshift("valentin", "pepe");
     // console.log(paco);
@@ -129,6 +131,7 @@
     // let combinacion = paco.concat(otros);
     // console.log(combinacion);
     //slice() --> Devuelve una copia (superficial)
+    
     //de una porcion del array
     // let copiaPaco = paco.slice(1, 3);
     // console.log(copiaPaco);
