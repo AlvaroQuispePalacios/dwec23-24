@@ -6,11 +6,26 @@ let llegoAKraprekar = false;
 let arrayAscendente = new Array(4);
 let arrayDescendente = new Array(4);
 
+//Verifica si el numero es de 4 cifras y que tenga como minimo dos diferentes
 function verificarNumero(numero){
-    
+
+    let dosNumerosDiferentes = false;
+
+    if(numero.length == 4){
+
+        for(let i = 0; i < 3; i++){
+            if(numero.charAt(i) != numero.charAt(i+1)){
+                dosNumerosDiferentes = true;
+            }
+        }
+
+    }else{
+        console.log("El numero no es valido");
+    }
+    return dosNumerosDiferentes;
 }
 
-//Convierte el numero en un string y kuego los introduce a un array ya con sus elementos transformados a numero
+//Convierte el numero en un string y luego los introduce a un array ya con sus elementos transformados a numero
 function convertirNumero(numero){
 
     let numeroAString = numero.toString();
@@ -18,6 +33,7 @@ function convertirNumero(numero){
     let numeroAArray = new Array(4);
 
     if(numero == 6174){
+
         llegoAKraprekar = true;
 
     }else if (numero != 6174){
@@ -29,7 +45,7 @@ function convertirNumero(numero){
     return numeroAArray;
 }
 
-//
+//Funcion que ordena de orden ascendente y descendente la array 
 function ordenarAscendenteYDescendente(arrayAOrdenar){
 
     //Copias para poder ordenar el array dado
@@ -50,23 +66,29 @@ function kraprekar(numero){
     let contadorKraprekar = 0;
     let array;
 
-    array = convertirNumero(numero);
-    ordenarAscendenteYDescendente(array);
+    if(verificarNumero(numero)){
+        
+        array = convertirNumero(numero);
+        ordenarAscendenteYDescendente(array);
+        
+        while(llegoAKraprekar != true){
     
-    while(llegoAKraprekar != true){
+            let numeroAscendente = +arrayAscendente.join("");
+        
+            let numeroDescendente = +arrayDescendente.join("");
+        
+            let resta = numeroDescendente - numeroAscendente;
+        
+            ordenarAscendenteYDescendente(convertirNumero(resta));
+        
+            contadorKraprekar++;
+        }
+        console.log("Se necesito " + contadorKraprekar + " pasos para llegar a la constante de kraprekar");
 
-        let numeroAscendente = +arrayAscendente.join("");
-    
-        let numeroDescendente = +arrayDescendente.join("");
-    
-        let resta = numeroDescendente - numeroAscendente;
-    
-        ordenarAscendenteYDescendente(convertirNumero(resta));
-    
-        contadorKraprekar++;
+    }else{
+        console.log("El numero no es valido");
     }
     
-    console.log("Se necesito " + contadorKraprekar + " pasos para llegar a la constante de kraprekar");
 }
 
 kraprekar(numeroUsuario);
