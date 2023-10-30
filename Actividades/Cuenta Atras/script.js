@@ -1,46 +1,37 @@
 let elCrono;
 let miFecha = new Date();
 let laHora = document.getElementById("lahora");
-let tiempo = parseInt(document.getElementById("tiempo"), 10);
 
-//Pedir al usuario un numero
-const numero = prompt("Elige un numero");
-const convertirNumero = +numero;
-console.log(convertirNumero);
+
 
 //Inicializar cronometro
-miFecha.setHours(0, 0, 0, 0);
+miFecha.setHours(0, 1, 5, 0);
 
 //Inicializar texto 
 laHora.innerHTML = "00:00:00";
 
 function crono(){
-    let segundos = convertirNumero;
-    // let segundos = miFecha.getSeconds();
-    let minutos = miFecha.getMinutes();
+
     let horas = miFecha.getHours();
+    let minutos = miFecha.getMinutes();
+    let segundos = miFecha.getSeconds();
 
+    segundos -= 1;
 
-    if(tiempo == 60){
-        segundos = 0;
-        minutos =+ 1;
-        miFecha.setMinutes(minutos);
-    }
-
+    
+    
     if(minutos == 60){
         minutos = 0;
         horas += 1;
         miFecha.setHours(horas);
     }
+    
+    if(segundos == 60){
+        segundos = 0;
+        minutos += 1;
 
-    segundos -= 1;
-
-    // if(segundos == 60){
-    //     segundos = 0;
-    //     minutos += 1;
-
-    //     miFecha.setMinutes(minutos);
-    // }
+        miFecha.setMinutes(minutos);
+    }
 
     miFecha.setSeconds(segundos);
 
