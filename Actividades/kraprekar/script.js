@@ -19,8 +19,6 @@ function verificarNumero(numero){
             }
         }
 
-    }else{
-        console.log("El numero no es valido");
     }
     return dosNumerosDiferentes;
 }
