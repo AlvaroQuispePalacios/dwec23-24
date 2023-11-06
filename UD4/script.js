@@ -184,8 +184,8 @@
         return a.localeCompare(b);
     }));
 */
-    ////////////////////////////////////FUNCIONES////////////////////////////
-    /*
+////////////////////////////////////FUNCIONES////////////////////////////
+/*
     function diHola(){
         console.log("Hola");
     }
@@ -198,8 +198,8 @@
     }
 
     */
-    ////////////////////////////////////OBJETOS////////////////////////////
-    /*
+////////////////////////////////////OBJETOS////////////////////////////
+/*
         Para la clave podemos omitar las comillas
 
         let unCliente = {
@@ -334,9 +334,8 @@
         console.log(ciudades);
     */
 
-
-    //////////////////////////////ES6///////////////////////////////////
-    /* 
+//////////////////////////////ES6///////////////////////////////////
+/* 
     const miArray = ["A", "B", "C"];
     miArray.push("D");
     console.log(miArray);
@@ -429,31 +428,30 @@
       console.log(sumar(3, 2, 7));
     */
 
-   /////////////////////METODOS DE ARRAY///////////////////////
-   //forEach() ejecuta una funcion una vez por cada elemento
+/////////////////////METODOS DE ARRAY///////////////////////
+//forEach() ejecuta una funcion una vez por cada elemento
 //    const numeros = [1, 2, 3, 4, 5];
 //    const multiplica = (n) => {
 //     return n * 2;
-//    }; 
+//    };
 
 //    numeros.forEach((numero) =>{
 //         console.log(numero);
 //    });
 
 //    numeros.forEach((numero) =>{
-//         console.log(multiplica(numero)); 
+//         console.log(multiplica(numero));
 //     });
 
-    //map()--> Crea un nuevo array con los resultados de aplicar una funcion a cada elemento del array
+//map()--> Crea un nuevo array con los resultados de aplicar una funcion a cada elemento del array
 
-    //const dobleNumero = numeros.map((numero) => {
-    //    return multiplica(numero);
-    //});
+//const dobleNumero = numeros.map((numero) => {
+//    return multiplica(numero);
+//});
 
+//console.log(dobleNumero);
 
-    //console.log(dobleNumero);
-    
-    /* 
+/* 
     //filter()-->Crea un nuevo array con todos los elemento que cumplan una condicion determinada
     const numeroPares = numeros.filter((numero) =>{
         return numero % 2 === 0;
@@ -501,83 +499,159 @@
 
     */
 
-    /*//////////////////////////////CLASES//////////////////////////////////
+/*//////////////////////////////CLASES//////////////////////////////////
     
+    class Persona{
+     constructor(nombre){
+         this.nombre = nombre;
+     }
+     saludar(){
+         console.log(`Hola soy ${this.nombre}`);
+     }
+    }
+ 
+    const alvaro = new Persona("Alvaro");
+    //console.log(alvaro);
+    //alvaro.saludar();
+ 
+    //HERENCIA
+    class Empleado extends Persona{
+     constructor(nombre, salario){
+         super(nombre);
+         this.salario = salario;
+     }
+     trabajar(){
+         console.log(`${this.nombre} esta trabajando.`);
+     }
+    }
+ 
+    const maria = new Empleado("Maria", 300000);
+     //console.log(maria);
+     //maria.saludar();
+     //maria.trabajar();
+     //SIMBOLOS
+     //Son una nueva clase de datos introducida por ES6. Son valores unicos e inmutables se pueden utilizar como identificadores de propiedades de objetos.
+ 
+     //const id = Symbol("id");
+     //const persona = {
+     //    nombre: "Alvaro",
+     //    [id]: 1
+     //};
+ 
+     //console.log(persona[id]);
+    //ITERADORES
+    //Son objetos que incrementan el protocolo de iteracion en JavaScript permiten recorrer y acceder a los elementos de una coleccion uno a uno
+    //Nos dice 
+    const numeros = [1, 2, 3];
+    const iterador = numeros[Symbol.iterator]();
+    console.log(iterador.next());
+    console.log(iterador.next());
+    console.log(iterador.next());
+    console.log(iterador.next());
+    //Nos dice que el valor de la posicion en el que se encuentra y si ha llegado al final
+ 
+    //SET
+    //Permite almacenar valores unicos de cualquier tipo, no permite duplicados y ofrece metodos para agregar, eliminar y verificar la existencia del elemento.
+    const setNumeros = new Set();
+    setNumeros.add(1);
+    setNumeros.add(2);
+    setNumeros.add(3);
+ 
+    console.log(setNumeros.has(2));
+    setNumeros.delete(2);
+    console.log(setNumeros.has(2));
+    console.log(setNumeros.size);
+    console.log(setNumeros);
+    const iterador2 = setNumeros[Symbol.iterator]();
+    console.log(iterador2.next());
+    console.log(iterador2.next());
+    console.log(iterador2.next());
+    //MAP
+    //Nos permite almacenar PARES clave-valor donde cada clave es único. Permite operaciones de busqueda, insercion y eliminacion.
+    const mapaNombres = new Map();
+    mapaNombres.set("nombre", "Alvaro")
+    mapaNombres.set("edad", 33);
+    mapaNombres.set("profesion", "Desarrollador");
+    console.log(mapaNombres.get("edad"));
+    console.log(mapaNombres.has("edad"));
+    mapaNombres.delete("edad");
+    console.log(mapaNombres.has("edad"));
+    console.log(mapaNombres.size);
+    console.log(mapaNombres);
     */
-   class Persona{
-    constructor(nombre){
-        this.nombre = nombre;
+
+//UNIDAD 3....................................................................................................
+/* 
+    //COOKEIS
+    Se utiliza para:
+    - Monitorizar actividad de los usuarios
+    - Mantener opciones de visualizacion o de aspecto para el usuario
+    - Almacenar variables en el lado cliente 
+    - Identificacion o autenticacion 
+
+    CREAR UNA COOKIE
+    // document.cookie = "usuario=Oreo";
+    
+    //Esta mejor escribirlo asi
+    function crearCookie(usuarioCookie){
+        console.log("Creando cookie");
+        usuarioCookie += ";expires=Mon, 6 Nov 2023 12:15:00 GMT"
+        document.cookie = "usuario=" + encodeURIComponent(usuarioCookie);
+        console.log(usuarioCookie);
+        
     }
-    saludar(){
-        console.log(`Hola soy ${this.nombre}`);
+    
+    function leerCookie(){
+        console.log("Leyendo las cookies...");
+        console.log(decodeURIComponent(document.cookie));
     }
-   }
 
-   const alvaro = new Persona("Alvaro");
-   //console.log(alvaro);
-   //alvaro.saludar();
+*/
+/*
+-----------------------------------LOCAL STORAGE----------------------
+Nos permite guardar cosas en el navegador aunque actualizemos todavia estara ahi
+    setItem(clave, valor)
+    getItem(clave)
+*/
+function guardarValores(){
 
-   //HERENCIA
-   class Empleado extends Persona{
-    constructor(nombre, salario){
-        super(nombre);
-        this.salario = salario;
+    let unCliente = {
+        nombre: "Alvaro",
+        apellido: "Quispe",
+        "direccion fiscal": "Calle las Rosas N1 ",
+        "+-+-+-+": "boquesa",
+        pago: {
+            tipo: "Visa",
+            tarjeta: "3219587478",
+            "fecha caducidad": "nunca"
+        },
+        vencimiento: 30
     }
-    trabajar(){
-        console.log(`${this.nombre} esta trabajando.`);
-    }
-   }
+    
+    console.log("guardando");
+    let usuariosWeb = ["alvaro", "pedro", "juan", "paco"];
+    // Con JSON.stringify(Algo) lo usamos para guardar y se convierte en un String
+    localStorage.setItem("usuario",JSON.stringify(unCliente));
+}
 
-   const maria = new Empleado("Maria", 300000);
-    //console.log(maria);
-    //maria.saludar();
-    //maria.trabajar();
-    //SIMBOLOS
-    //Son una nueva clase de datos introducida por ES6. Son valores unicos e inmutables se pueden utilizar como identificadores de propiedades de objetos.
+function leerValores(){
+    console.log("Leyendo");
+    // Utilizamos el parse para leer y lo vuelve a transformar a un objeto, funciona con cualquier tipo de dato
+    let usuario = JSON.parse(localStorage.getItem("usuario")); 
+    console.log(usuario == null ? "La clave no se ha encontrado":  usuario);
+}
 
-    //const id = Symbol("id");
-    //const persona = {
-    //    nombre: "Alvaro",
-    //    [id]: 1
-    //};
+/*
+    RECURSIVIDAD
+*/
 
-    //console.log(persona[id]);
-   //ITERADORES
-   //Son objetos que incrementan el protocolo de iteracion en JavaScript permiten recorrer y acceder a los elementos de una coleccion uno a uno
-   //Nos dice 
-   const numeros = [1, 2, 3];
-   const iterador = numeros[Symbol.iterator]();
-   console.log(iterador.next());
-   console.log(iterador.next());
-   console.log(iterador.next());
-   console.log(iterador.next());
-   //Nos dice que el valor de la posicion en el que se encuentra y si ha llegado al final
 
-   //SET
-   //Permite almacenar valores unicos de cualquier tipo, no permite duplicados y ofrece metodos para agregar, eliminar y verificar la existencia del elemento.
-   const setNumeros = new Set();
-   setNumeros.add(1);
-   setNumeros.add(2);
-   setNumeros.add(3);
+function factorial(n){
+    if(n == 0 ) return 1;
+    
+    return (n * factorial( n-1 ));
 
-   console.log(setNumeros.has(2));
-   setNumeros.delete(2);
-   console.log(setNumeros.has(2));
-   console.log(setNumeros.size);
-   console.log(setNumeros);
-   const iterador2 = setNumeros[Symbol.iterator]();
-   console.log(iterador2.next());
-   console.log(iterador2.next());
-   console.log(iterador2.next());
-   //MAP
-   //Nos permite almacenar PARES clave-valor donde cada clave es único. Permite operaciones de busqueda, insercion y eliminacion.
-   const mapaNombres = new Map();
-   mapaNombres.set("nombre", "Alvaro")
-   mapaNombres.set("edad", 33);
-   mapaNombres.set("profesion", "Desarrollador");
-   console.log(mapaNombres.get("edad"));
-   console.log(mapaNombres.has("edad"));
-   mapaNombres.delete("edad");
-   console.log(mapaNombres.has("edad"));
-   console.log(mapaNombres.size);
-   console.log(mapaNombres);
+}
+
+let numero = factorial(6);
+console.log(numero);
