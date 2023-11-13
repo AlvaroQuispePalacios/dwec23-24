@@ -8,7 +8,7 @@ let contadorKaprekar = 0;
 //AUN FALTA D:
 function validarNumero(numeroArray) {
 
-    console.log(transformarNumero);
+  console.log(transformarNumero);
   let numeroValido = false;
 
   if (transformarNumero == null || isNaN(transformarNumero)) {

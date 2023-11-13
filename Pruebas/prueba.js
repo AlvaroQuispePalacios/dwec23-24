@@ -17,26 +17,26 @@ numero = prompt(promptText);
 if(!validaNumero(numero)) {
   console.log("El número introducido no es válido.");
 } else {
-  while(numero != numeroKaprekar) {
+  // Llamada de la funcio principal(main)
+  principal(numero);
+}
 
-    // Llamamos a la función kaprekar.
-    numero = kaprekar(numero);
+function principal(numero) {
 
-    // Aumentamos el número de pasos.
-    pasos++;
+  numero = kaprekar(numero);
 
-    // Evitamos bucles infinitos i/o innecesarios.
-    if(pasos > 7 ) {
-      console.log("Número de pasos superado, algo no está bien...");
-      break;
-    }
+  pasos++;
 
-    // Si el número obtenido es el de Kaprekar, informamos
-    // de los pasos realizados.
-    if(numero == numeroKaprekar) {
-      console.log("Pasos realizados: " + pasos);
-    }
+  if(pasos > 7 ) {
+    return console.log("Número de pasos superado, algo no está bien...");
   }
+
+  if(numero == numeroKaprekar) {
+    return console.log("Pasos realizados: " + pasos);
+  }
+  
+  // Vuelve a llamarse
+  principal(numero);
 }
 
 /*
