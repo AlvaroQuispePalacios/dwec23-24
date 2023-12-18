@@ -11,9 +11,6 @@ html -->Nodo Raiz
 */
 
 
-
-
-
 /*
 querySelector -->Pide como parametro un selector CSS toma el primero que aparecera "const para = document.querySelector('.error');"
 
@@ -36,8 +33,6 @@ paras.forEach(para => {
     console.log(para); 
 });
 */
-
-
 
 
 /*
@@ -125,7 +120,6 @@ error.classList.remove("error");
 
 /*
 .parentNode --> Nos permite selecionar el padre de un elemento hijo 
-*/
 
 let paras = document.getElementsByTagName('p');
 console.log(paras);
@@ -138,3 +132,41 @@ let primerHermano = padre.firstElementChild;
 console.log(primerHermano);
 let siguienteHermano = hijo.nextElementSibling;
 console.log(siguienteHermano);
+
+*/
+
+
+
+/*
+EVENTOS
+Referenciamos el elemento del DOM 
+
+
+const par = document.querySelector('p');
+// Creamos un evento para ese elemento
+par.addEventListener('click', (e) =>{
+    // escribeLog();
+    // console.log(e.target);
+    console.log(e.target.innerText);
+    // con target puedo acceder al elemento y sus propiedades
+    e.target.innerText = "texto";
+    console.log(e.target.innerText);
+
+});
+
+// par.addEventListener('mouseover', () => {
+//     escribeOtroLog();
+// });
+
+function escribeLog(){
+console.log("Has hecho click en un parrafo");
+}
+
+function escribeOtroLog(){
+    console.log("has pasado por encima");
+}
+
+document.addEventListener('keydown', (e) => {
+    console.log("tecla presionada: " + e.key);
+});
+*/

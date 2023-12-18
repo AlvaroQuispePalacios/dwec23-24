@@ -40,7 +40,6 @@ function reiniciarCrono(){
 
 function start(){
     elCrono = setInterval(crono, 1000);
-
 }
 
 function stop(){

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Juego donde te ahorcas D:</title>
+</head>
+
+<body>
+    <!-- POPUP para poder elegir la categoria -->
+    <div class="envoltorio-popup">
+        <div class="popup">
+            <h2>Categorias</h2>
+            <div class="contenido-popup">
+                <button class="categoria" id="categoriaAnimales" categoria="/json/animales.json">Animales</button>
+                <button class="categoria" id="categoriaPaises" categoria="/json/paises.json">Paises</button>
+                <button class="categoria" id="categoriaFrutas" categoria="/json/frutas.json">Frutas</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="contenedor">
+        <div class="tablaPuntuaciones">
+            <h2 class="tituloTablaPuntuaciones">Tabla de puntuaciones</h2>
+            <div class="contenedorPalabra">
+                <h3>Palabra</h3>
+                <div class="palabraLS">
+
+                </div>
+            </div>
+            <div class="contenedorErrores">
+                <h3>Errores</h3>
+                <div class="numeroErrores">
+
+                </div>
+            </div>
+            <div class="contenedorTiempo">
+                <h3>Tiempo</h3>
+                <div class="tiempoTotal">
+
+                </div>
+            </div>
+        </div>
+
+        <h1>Juego del ahorcado</h1>
+
+        <p>Selecciona una letra le quedan <span class="intentos">6</span> intentos</p>
+
+        <div class="cuentaAtras">
+            00:00:10
+        </div>
+        
+        <div class="palabra">
+
+        </div>
+        
+
+        <div class="contenedor_letras">
+            <button class="letra">A</button>
+            <button class="letra">B</button>
+            <button class="letra">C</button>
+            <button class="letra">D</button>
+            <button class="letra">E</button>
+            <button class="letra">F</button>
+            <button class="letra">G</button>
+            <button class="letra">H</button>
+            <button class="letra">I</button>
+            <button class="letra">J</button>
+            <button class="letra">K</button>
+            <button class="letra">L</button>
+            <button class="letra">M</button>
+            <button class="letra">N</button>
+            <button class="letra">Ñ</button>
+            <button class="letra">O</button>
+            <button class="letra">P</button>
+            <button class="letra">Q</button>
+            <button class="letra">R</button>
+            <button class="letra">S</button>
+            <button class="letra">T</button>
+            <button class="letra">U</button>
+            <button class="letra">V</button>
+            <button class="letra">W</button>
+            <button class="letra">X</button>
+            <button class="letra">Y</button>
+            <button class="letra">Z</button>
+        </div>
+
+        <button class="reiniciar" hidden>
+            Reiniciar :D
+        </button>
+
+
+        <div class="errores"></div>
+
+        <div class="cronometro">
+            <p>Tiempo total</p>
+            <div class="tiempoTranscurrido"></div>
+        </div>
+
+    </div>
+
+    <script src="/ahorcado.js"></script>
+</body>
+
+</html>
